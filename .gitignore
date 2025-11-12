@@ -1,0 +1,36 @@
+# Node.js dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+/dist/
+/build/
+/.parcel-cache/
+/.next/
+/.turbo/
+
+# Tauri build artifacts
+/src-tauri/target/
+/src-tauri/.cargo/
+/src-tauri/gen/
+
+# Logs and diagnostics
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Misc
+coverage/
+.tmp/
