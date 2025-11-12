@@ -15,7 +15,7 @@ Local-first Tauri + React desktop portal that hosts several focused mini-sites b
 
 ## Proposed Structure
 ```
-usefule-web/
+useful-web/
 ├─ apps/
 │  ├─ portal/                 # top-level navigation shell, shared header/footer
 │  ├─ travel-checklist/       # country/city/POI views, checklist state

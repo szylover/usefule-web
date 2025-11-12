@@ -77,8 +77,8 @@ Install the platform-specific libraries described in the [official Tauri prerequ
 
 ## 2. Clone the Repository
 ```bash
-git clone https://github.com/<your-org>/usefule-web.git
-cd usefule-web
+git clone https://github.com/<your-org>/useful-web.git
+cd useful-web
 ```
 
 ## 3. Install JavaScript Dependencies
@@ -113,4 +113,4 @@ The compiled application will be emitted to the `src-tauri/target/` directory.
 - On macOS, install Xcode Command Line Tools with `xcode-select --install` if Tauri cannot find required libraries.
 - On Linux, ensure that WebKitGTK and other dependencies listed in the Tauri docs are installed before building.
 
-Following these steps should get you up and running with the Usefule Web project on your local machine.
+Following these steps should get you up and running with the Useful Web project on your local machine.

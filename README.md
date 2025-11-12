@@ -1,4 +1,4 @@
-# usefule-web
+# useful-web
 
 All project documentation now lives inside the [`docs/`](docs) directory to keep the repository root tidy.
 

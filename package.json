@@ -1,0 +1,16 @@
+{
+  "name": "useful-web",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/portal"],
+  "scripts": {
+    "dev": "cd apps/portal && npm run dev",
+    "build": "cd apps/portal && npm run build",
+    "tauri": "tauri",
+    "tauri:dev": "npm run tauri -- dev",
+    "tauri:build": "npm run tauri -- build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.9"
+  }
+}

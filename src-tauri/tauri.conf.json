@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "package": {
+    "productName": "Usefulē Portal",
+    "version": "0.1.0"
+  },
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "devPath": "http://localhost:5173",
+    "distDir": "../apps/portal/dist"
+  },
+  "tauri": {
+    "windows": [
+      {
+        "title": "Usefulē Portal",
+        "width": 1200,
+        "height": 780,
+        "resizable": true
+      }
+    ],
+    "allowlist": {
+      "shell": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.useful.portal"
+    }
+  }
+}
