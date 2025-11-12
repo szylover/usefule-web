@@ -1,0 +1,96 @@
+/* Styles specific to the calculator page (web1) */
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.calculator {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+.display {
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: right;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+    word-wrap: break-word;
+    color: #333;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.buttons button {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-number {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-number:hover {
+    background: #d0d0d0;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #ff9800;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #f57c00;
+    transform: scale(1.05);
+}
+
+.btn-equals {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-equals:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .calculator {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .buttons button {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .display {
+        font-size: 1.6rem;
+    }
+}
