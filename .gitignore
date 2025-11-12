@@ -35,3 +35,7 @@ pnpm-debug.log*
 # Misc
 coverage/
 .tmp/
+
+# Generated at build time
+src-tauri/icons/icon.ico
+

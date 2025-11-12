@@ -85,7 +85,18 @@ cd useful-web
 ```bash
 pnpm install
 ```
-This command downloads all Node.js dependencies defined in the workspace manifests.
+This command downloads all Node.js dependencies defined in the workspace manifests, including the portal app’s local Vite
+binary. Without this step the `vite` command invoked by `pnpm dev` will not be available.
+
+If you encounter an error such as `'vite' is not recognized as an internal or external command'`, rerun the install step scoped
+to the portal package to make sure its `node_modules` directory is populated:
+```bash
+pnpm --filter portal install
+```
+You can verify that Vite is available with:
+```bash
+pnpm --filter portal exec vite --version
+```
 
 ## 4. Prepare the Database (Optional for now)
 Database tooling will live under `packages/db`. Once ORM tooling is available, push the schema with:
