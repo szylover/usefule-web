@@ -1,96 +1,226 @@
-/* Styles specific to the calculator page (web1) */
+/* Styles specific to the travel checklist page (web1) */
 
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
 }
 
-.calculator-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
+.travel-container {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.calculator {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    max-width: 400px;
-    width: 100%;
-}
-
-.display {
-    background: #f0f0f0;
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: right;
-    font-size: 2rem;
-    font-weight: 600;
+.search-section {
     margin-bottom: 1.5rem;
-    min-height: 60px;
-    word-wrap: break-word;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #56ab2f;
+}
+
+.stats-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stats-bar span {
+    font-weight: 600;
     color: #333;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-}
-
-.buttons button {
-    padding: 1.5rem;
-    font-size: 1.3rem;
+.btn-reset {
+    background: #ff6b6b;
+    color: white;
     border: none;
-    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
 }
 
-.btn-number {
-    background: #e0e0e0;
+.btn-reset:hover {
+    background: #ee5a52;
+    transform: scale(1.05);
+}
+
+.travel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.country-section {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.country-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.country-header:hover {
+    background: #f5f5f5;
+}
+
+.country-name {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.btn-number:hover {
-    background: #d0d0d0;
-    transform: scale(1.05);
+.country-flag {
+    font-size: 1.8rem;
 }
 
-.btn-secondary {
-    background: #ff9800;
-    color: white;
+.expand-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
-.btn-secondary:hover {
-    background: #f57c00;
-    transform: scale(1.05);
+.country-section.expanded .expand-icon {
+    transform: rotate(180deg);
 }
 
-.btn-equals {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.cities-container {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #e0e0e0;
 }
 
-.btn-equals:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
-    transform: scale(1.05);
+.country-section.expanded .cities-container {
+    display: block;
+}
+
+.city-section {
+    margin-bottom: 1.5rem;
+}
+
+.city-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.city-header:hover {
+    background: #f9f9f9;
+}
+
+.city-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.city-icon {
+    font-size: 1.2rem;
+}
+
+.attractions-list {
+    display: none;
+    padding-left: 2rem;
+}
+
+.city-section.expanded .attractions-list {
+    display: block;
+}
+
+.attraction-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #f8f8f8;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.attraction-item:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.attraction-item.visited {
+    background: #e8f5e9;
+}
+
+.attraction-checkbox {
+    width: 22px;
+    height: 22px;
+    margin-right: 1rem;
+    cursor: pointer;
+    accent-color: #56ab2f;
+}
+
+.attraction-name {
+    flex: 1;
+    color: #333;
+    font-size: 1rem;
+}
+
+.attraction-item.visited .attraction-name {
+    color: #56ab2f;
+    font-weight: 600;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+    font-style: italic;
+    background: white;
+    border-radius: 15px;
 }
 
 @media (max-width: 768px) {
-    .calculator {
-        padding: 1.5rem;
-        max-width: 100%;
+    .travel-container {
+        padding: 0.5rem;
     }
     
-    .buttons button {
-        padding: 1.2rem;
-        font-size: 1.1rem;
+    .country-section {
+        padding: 1rem;
     }
     
-    .display {
-        font-size: 1.6rem;
+    .attractions-list {
+        padding-left: 1rem;
+    }
+    
+    .stats-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
 }

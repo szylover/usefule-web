@@ -3,47 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator - Useful Web</title>
+    <title>Global Travel Checklist - Useful Web</title>
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/web1.css">
 </head>
 <body>
     <header>
-        <h1>🧮 Calculator</h1>
-        <p class="subtitle">Simple and elegant calculator</p>
+        <h1>🌍 Global Travel Checklist</h1>
+        <p class="subtitle">Plan your journey around the world</p>
     </header>
     
     <main>
         <a href="index.html" class="back-link">← Back to Home</a>
         
-        <div class="calculator-container">
-            <div class="calculator">
-                <div class="display" id="display">0</div>
-                
-                <div class="buttons">
-                    <button class="btn-secondary" onclick="clearDisplay()">C</button>
-                    <button class="btn-secondary" onclick="deleteLast()">⌫</button>
-                    <button class="btn-secondary" onclick="appendOperator('/')">/</button>
-                    <button class="btn-secondary" onclick="appendOperator('*')">×</button>
-                    
-                    <button class="btn-number" onclick="appendNumber('7')">7</button>
-                    <button class="btn-number" onclick="appendNumber('8')">8</button>
-                    <button class="btn-number" onclick="appendNumber('9')">9</button>
-                    <button class="btn-secondary" onclick="appendOperator('-')">-</button>
-                    
-                    <button class="btn-number" onclick="appendNumber('4')">4</button>
-                    <button class="btn-number" onclick="appendNumber('5')">5</button>
-                    <button class="btn-number" onclick="appendNumber('6')">6</button>
-                    <button class="btn-secondary" onclick="appendOperator('+')">+</button>
-                    
-                    <button class="btn-number" onclick="appendNumber('1')">1</button>
-                    <button class="btn-number" onclick="appendNumber('2')">2</button>
-                    <button class="btn-number" onclick="appendNumber('3')">3</button>
-                    <button class="btn-equals" onclick="calculate()" style="grid-row: span 2;">=</button>
-                    
-                    <button class="btn-number" onclick="appendNumber('0')" style="grid-column: span 2;">0</button>
-                    <button class="btn-number" onclick="appendNumber('.')">.</button>
-                </div>
+        <div class="travel-container">
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="Search countries, cities, or attractions..." onkeyup="filterLocations()">
+            </div>
+            
+            <div class="stats-bar">
+                <span id="stats">0 / 0 attractions visited</span>
+                <button class="btn-reset" onclick="resetAll()">Reset All</button>
+            </div>
+            
+            <div id="travelList" class="travel-list">
+                <!-- Travel destinations will be added here by JavaScript -->
             </div>
         </div>
     </main>
