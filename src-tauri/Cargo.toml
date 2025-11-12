@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [build-dependencies]
+crc32fast = "1"
+flate2 = { version = "1", default-features = false, features = ["rust_backend"] }
 tauri-build = { version = "2.0", features = [] }
 
 [dependencies]
