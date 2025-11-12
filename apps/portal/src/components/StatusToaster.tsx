@@ -7,7 +7,7 @@ export interface ToastPayload {
   status?: 'info' | 'success' | 'warning' | 'error';
 }
 
-export const TOAST_EVENT = 'usefule:toast';
+export const TOAST_EVENT = 'useful:toast';
 
 const toastDuration = 3200;
 
