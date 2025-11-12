@@ -49,7 +49,7 @@ const PortalHome = () => {
   return (
     <section className="portal-home">
       <div className="portal-home__intro">
-        <h1>欢迎来到 Usefule Web Portal</h1>
+        <h1>欢迎来到 Useful Web Portal</h1>
         <p>从统一入口快速访问各个主题代理（mini-site），探索旅行灵感与修图练习素材。</p>
       </div>
 

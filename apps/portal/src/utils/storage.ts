@@ -1,4 +1,4 @@
-export const LAST_VISITED_KEY = 'usefule:lastVisitedPath';
+export const LAST_VISITED_KEY = 'useful:lastVisitedPath';
 
 export const readableRouteName: Record<string, string> = {
   '/': 'Portal',

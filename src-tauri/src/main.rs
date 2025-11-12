@@ -3,5 +3,5 @@
 fn main() {
     tauri::Builder::default()
         .run(tauri::generate_context!())
-        .expect("error while running Usefule Web application");
+        .expect("error while running Useful Web application");
 }
