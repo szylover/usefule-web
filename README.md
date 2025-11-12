@@ -2,9 +2,8 @@
 
 All project documentation now lives inside the [`docs/`](docs) directory to keep the repository root tidy.
 
-Key starting points:
+## 📚 Key Documentation
 
-- [Project Overview](docs/README.md)
-- [Local Setup Guide](docs/local-setup.md)
-
-Refer to `agents.md` for detailed responsibility notes for each mini-site.
+- [Project Overview](docs/README.md) - Learn about the project structure and architecture
+- [Local Setup Guide](docs/local-setup.md) - Get started with local development
+- [Agents & Responsibilities](agents.md) - Detailed notes on each mini-site's functionality
