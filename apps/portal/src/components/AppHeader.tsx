@@ -5,7 +5,7 @@ const AppHeader = () => {
     <header className="app-header">
       <div className="app-header__inner">
         <Link to="/" className="app-logo">
-          Usefule Web Portal
+          Useful Web Portal
         </Link>
         <nav className="app-nav">
           <Link to="/travel" className="app-nav__link">
