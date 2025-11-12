@@ -19,7 +19,7 @@ const PortalPage = () => {
   return (
     <div className="layout">
       <header className="header">
-        <h1>Usefulē Portal</h1>
+        <h1>Useful Portal</h1>
         <p className="subtitle">在这里切换不同的练习空间，保持创作灵感常驻。</p>
       </header>
       <section className="card-grid">
