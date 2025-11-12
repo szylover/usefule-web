@@ -4,8 +4,8 @@
   "private": true,
   "workspaces": ["apps/portal"],
   "scripts": {
-    "dev": "cd apps/portal && npm run dev",
-    "build": "cd apps/portal && npm run build",
+    "dev": "pnpm -C apps/portal dev",
+    "build": "pnpm -C apps/portal build",
     "tauri": "tauri",
     "tauri:dev": "npm run tauri -- dev",
     "tauri:build": "npm run tauri -- build"
