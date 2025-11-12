@@ -1,16 +1,14 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "package": {
-    "productName": "Useful Portal",
-    "version": "0.1.0"
-  },
-  "build": {
-    "beforeBuildCommand": "npm run build",
-    "beforeDevCommand": "npm run dev",
-    "devPath": "http://localhost:5173",
-    "distDir": "../apps/portal/dist"
-  },
+  "productName": "Useful Portal",
+  "version": "0.1.0",
   "identifier": "com.useful.portal",
+  "build": {
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../apps/portal/dist"
+  },
   "app": {
     "windows": [
       {
@@ -23,8 +21,7 @@
   },
   "bundle": {
     "active": true,
-    "targets": "all",
-    "identifier": "com.useful.portal"
+    "targets": "all"
   },
   "plugins": {
     "shell": {
