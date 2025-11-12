@@ -3,10 +3,77 @@
 Follow the steps below to run the Usefule Web desktop portal locally.
 
 ## 1. Install Prerequisites
-- **Rust toolchain**: Install via [rustup](https://rustup.rs/). Ensure the `cargo` command is available in your shell.
-- **Node.js**: Install Node.js version 18 or later. Using a version manager such as `nvm` is recommended.
-- **Package manager**: Install either `pnpm` (preferred) or `yarn`. Instructions assume `pnpm`.
-- **Tauri dependencies**: Refer to the [official Tauri prerequisites guide](https://tauri.app/v1/guides/getting-started/prerequisites/) for any additional system libraries required by your operating system.
+
+### Rust toolchain (via rustup)
+- macOS & Linux:
+  ```bash
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  source "$HOME/.cargo/env"
+  ```
+- Windows (PowerShell):
+  ```powershell
+  winget install --id Rustlang.Rustup -e
+  rustup default stable
+  ```
+Verify the installation with:
+```bash
+rustc --version
+cargo --version
+```
+
+### Node.js 18+
+- Using `nvm` on macOS/Linux:
+  ```bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+  source "$HOME/.nvm/nvm.sh"
+  nvm install 18
+  nvm use 18
+  ```
+- Using `nvm-windows` on Windows:
+  1. Download the latest installer from <https://github.com/coreybutler/nvm-windows/releases>.
+  2. Run the installer and follow the prompts, then execute:
+     ```powershell
+     nvm install 18.19.0
+     nvm use 18.19.0
+     ```
+- Using package managers:
+  - Homebrew: `brew install node@18`
+  - Chocolatey: `choco install nodejs-lts`
+
+Confirm the active version:
+```bash
+node --version
+npm --version
+```
+
+### JavaScript package manager (pnpm preferred)
+- Using Corepack (ships with Node 16.13+):
+  ```bash
+  corepack enable
+  corepack prepare pnpm@latest --activate
+  ```
+- Alternative direct install:
+  ```bash
+  npm install -g pnpm
+  ```
+Check installation:
+```bash
+pnpm --version
+```
+
+### Tauri system dependencies
+Install the platform-specific libraries described in the [official Tauri prerequisites guide](https://tauri.app/v1/guides/getting-started/prerequisites/). Common commands include:
+- macOS: `xcode-select --install`
+- Ubuntu/Debian:
+  ```bash
+  sudo apt update
+  sudo apt install -y libwebkit2gtk-4.0-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev
+  ```
+- Fedora:
+  ```bash
+  sudo dnf install webkit2gtk4.0-devel gtk3-devel libappindicator-gtk3 librsvg2-devel
+  ```
+- Windows: ensure the "Desktop development with C++" workload is installed via Visual Studio Build Tools.
 
 ## 2. Clone the Repository
 ```bash
