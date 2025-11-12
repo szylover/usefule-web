@@ -10,7 +10,8 @@
     "devPath": "http://localhost:5173",
     "distDir": "../apps/portal/dist"
   },
-  "tauri": {
+  "identifier": "com.useful.portal",
+  "app": {
     "windows": [
       {
         "title": "Usefulē Portal",
@@ -18,16 +19,16 @@
         "height": 780,
         "resizable": true
       }
-    ],
-    "allowlist": {
-      "shell": {
-        "all": true
-      }
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "com.useful.portal"
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "identifier": "com.useful.portal"
+  },
+  "plugins": {
+    "shell": {
+      "scope": ["open"]
     }
   }
 }
