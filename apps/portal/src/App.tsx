@@ -15,14 +15,6 @@ const App = () => {
     }
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (location.pathname === '/') {
-      const lastVisited = localStorage.getItem(LAST_VISITED_KEY);
-      if (lastVisited) {
-        localStorage.setItem(LAST_VISITED_KEY, lastVisited);
-      }
-    }
-  }, [location.pathname]);
 
   return (
     <Layout>
