@@ -4,7 +4,7 @@
 
 ## Project Snapshot
 - **Product shape**: Single-window Tauri shell with a React Router portal navigator; each agent is a mini-site mounted under the same shell.
-- **Current progress**: Portal landing page plus a fully interactive Photo agent are available; the Travel agent is still a placeholder. LiteSQLite access, sync logic, and data commands are not wired up yet.
+- **Current progress**: Portal landing page now renders as a left-hand tree that hot-swaps the active agent inside the same window; the Photo agent is fully interactive and the Travel agent remains a placeholder. LiteSQLite access, sync logic, and data commands are not wired up yet.
 - **Source of truth**: Product requirements live in `agents.md`. This file focuses on implementation details. If conflicts arise, treat `agents.md` as authoritative and document the resolution here.
 
 ## Repository Layout (Snapshot)
@@ -33,17 +33,17 @@ useful-web/
 ## Portal Frontend (`apps/portal`)
 - **Entry stack**: `src/main.tsx` mounts `<App />` inside a `HashRouter` to stay compatible with Tauri’s file protocol (no server-side history API).
 - **Routes** (`src/App.tsx`):
-  - `/` → `PortalPage`: Lists the available agents as cards.
+  - `/` → `PortalPage`: Presents a two-column shell (`portal-shell`) with a left tree navigator (`portal-tree`) that lists every agent and a right-hand stage that renders the selected mini-site inline via the appropriate React component.
   - `/travel` → `TravelPage`: Placeholder message with upcoming workflow notes.
   - `/photo` → `PhotoPage`: Fully interactive photo practice hub (tabs, favorites, external links).
   - `*` → Redirect back to `/`.
-- **Shared layout**: `components/SubPageLayout.tsx` encapsulates the back button, hero block, and content slot. The `accent` prop toggles styling per agent.
-- **Styling**: `src/styles.css` contains all layout and component styles (cards, hero sections, placeholders). When introducing a new styling approach (Tailwind, CSS Modules, etc.) document the rationale and migration plan here.
+- **Shared layout**: `components/SubPageLayout.tsx` encapsulates the back button, hero block, and content slot. The `accent` prop toggles styling per agent, and the optional `showBackButton` prop lets the portal embed agent pages without duplicating navigation chrome (the back button now falls back to `/` if browser history is shallow).
+- **Styling**: `src/styles.css` contains all layout and component styles (cards, hero sections, placeholders, and the new portal tree/stage). When introducing a new styling approach (Tailwind, CSS Modules, etc.) document the rationale and migration plan here.
 - **External links**: `agents.md` requires all outbound links to use `window.open(url, "_blank")` through the Tauri shell API. Implemented via `apps/portal/src/utils/openExternal.ts`, which calls `window.__TAURI__.shell.open` when available and falls back to `window.open`.
 
 ## Agent Implementation Notes (tie back to `agents.md`)
 1. **Portal Navigator**
-   - Present state: `PortalPage.tsx` renders static cards. Future work must add “recently visited” persistence and a search input. Record where you store this state (localStorage vs. LiteSQLite) and justify how it remains shareable across agents.
+   - Present state: `PortalPage.tsx` drives a static `agentNodes` tree that highlights the active mini-site and streams its React component into the right-hand stage. Next steps are persisting “last visited” plus adding search on the tree; document where that state lives (localStorage vs. LiteSQLite) so other agents can reuse it.
 2. **Global Travel Checklist Agent**
    - Data model: `countries → cities → places → visit_status` with the columns listed in `agents.md`.
    - UX expectations: Region filters, progressive drilldown, instant LiteSQLite writes, real-time completion stats, and emitted events `placeVisited` / `memoUpdated`.
