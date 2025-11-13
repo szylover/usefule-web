@@ -15,20 +15,143 @@ a {
   text-decoration: none;
 }
 
-.layout {
-  max-width: 960px;
+.portal-shell {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 64px 24px 96px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 48px;
+.portal-header {
+  margin-bottom: 32px;
 }
 
-.header h1 {
-  font-size: 2.5rem;
+.portal-header h1 {
   margin: 0;
+  font-size: 2.5rem;
+}
+
+.portal-body {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.portal-tree {
+  flex: 0 0 320px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  position: sticky;
+  top: 32px;
+}
+
+.tree-heading {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.tree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tree-node {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f8fafc;
+  padding: 18px 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  color: inherit;
+}
+
+.tree-node:hover {
+  transform: translateX(2px);
+  border-color: rgba(15, 23, 42, 0.2);
+}
+
+.tree-node:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 3px;
+}
+
+.tree-node.is-active {
+  transform: translateX(3px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  background: white;
+}
+
+.tree-node-travel.is-active {
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+.tree-node-photo.is-active {
+  border-color: rgba(192, 38, 211, 0.5);
+}
+
+.tree-node-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tree-node-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.tree-node-description {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.tree-node-summary {
+  font-size: 0.85rem;
+  color: #0f172a;
+  opacity: 0.8;
+}
+
+.portal-stage {
+  flex: 1;
+  min-width: 0;
+}
+
+.portal-stage-inner {
+  background: transparent;
+}
+
+.portal-stage-placeholder {
+  border-radius: 28px;
+  border: 1px dashed rgba(148, 163, 184, 0.8);
+  padding: 48px;
+  text-align: center;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 960px) {
+  .portal-body {
+    flex-direction: column;
+  }
+
+  .portal-tree {
+    position: static;
+    width: 100%;
+  }
 }
 
 .subtitle {
