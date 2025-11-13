@@ -24,7 +24,7 @@ const SubPageLayout = ({ title, description, accent = 'default', children }: Sub
 
   return (
     <div className="subpage-shell">
-      <button type="button" className="back-button" onClick={handleBack}>
+      <button type="button" className="back-button" onClick={handleBack} aria-label="Navigate back to overview page">
         <span className="back-icon" aria-hidden="true">
           ←
         </span>

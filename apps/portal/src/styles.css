@@ -110,6 +110,11 @@ a {
   box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
 }
 
+.back-button:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
 .back-icon {
   font-size: 1.15rem;
   line-height: 1;
