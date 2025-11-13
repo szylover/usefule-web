@@ -30,7 +30,11 @@ const initialCounts: Record<PhotoFilterCategory, number> = {
   repository: 0
 };
 
-const PhotoPage = () => {
+type PhotoPageProps = {
+  showBackButton?: boolean;
+};
+
+const PhotoPage = ({ showBackButton = true }: PhotoPageProps) => {
   const [activeFilter, setActiveFilter] = useState<PhotoFilterCategory>('all');
   const [favoriteIds, setFavoriteIds] = useState<string[]>(readStoredFavorites);
   const [favoritesOnly, setFavoritesOnly] = useState(false);
@@ -103,6 +107,7 @@ const PhotoPage = () => {
       title="摄影后期练习"
       description="汇总 RAW 素材与开源工具，随时挑选练习题重启调色手感。"
       accent="photo"
+      showBackButton={showBackButton}
     >
       <section className="photo-toolbar">
         <div className="photo-tabs" role="tablist" aria-label="resource categories">

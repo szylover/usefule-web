@@ -1,11 +1,16 @@
 import SubPageLayout from '../components/SubPageLayout';
 
-const TravelPage = () => {
+type TravelPageProps = {
+  showBackButton?: boolean;
+};
+
+const TravelPage = ({ showBackButton = true }: TravelPageProps) => {
   return (
     <SubPageLayout
       title="环球旅行清单"
       description="按地区、城市逐层展开清单，记录每一次打卡与灵感。"
       accent="travel"
+      showBackButton={showBackButton}
     >
       <div className="placeholder">
         <h2>功能建设中</h2>

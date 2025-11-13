@@ -6,9 +6,16 @@ type SubPageLayoutProps = {
   description: string;
   accent?: 'travel' | 'photo' | 'default';
   children: ReactNode;
+  showBackButton?: boolean;
 };
 
-const SubPageLayout = ({ title, description, accent = 'default', children }: SubPageLayoutProps) => {
+const SubPageLayout = ({
+  title,
+  description,
+  accent = 'default',
+  children,
+  showBackButton = true
+}: SubPageLayoutProps) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -24,12 +31,14 @@ const SubPageLayout = ({ title, description, accent = 'default', children }: Sub
 
   return (
     <div className="subpage-shell">
-      <button type="button" className="back-button" onClick={handleBack} aria-label="Navigate back to overview page">
-        <span className="back-icon" aria-hidden="true">
-          ←
-        </span>
-        返回概览
-      </button>
+      {showBackButton && (
+        <button type="button" className="back-button" onClick={handleBack} aria-label="Navigate back to overview page">
+          <span className="back-icon" aria-hidden="true">
+            ←
+          </span>
+          返回概览
+        </button>
+      )}
 
       <section className={`subpage-hero subpage-hero-${accent}`}>
         <p className="subpage-breadcrumb">Portal / {title}</p>
