@@ -4,12 +4,12 @@
 
 ## Project Snapshot
 - **Product shape**: Single-window Tauri shell with a React Router portal navigator; each agent is a mini-site mounted under the same shell.
-- **Current progress**: Only `apps/portal` exists with the landing page and two placeholder sub-pages. LiteSQLite access, sync logic, and data commands are not wired up yet.
+- **Current progress**: Portal landing page plus a fully interactive Photo agent are available; the Travel agent is still a placeholder. LiteSQLite access, sync logic, and data commands are not wired up yet.
 - **Source of truth**: Product requirements live in `agents.md`. This file focuses on implementation details. If conflicts arise, treat `agents.md` as authoritative and document the resolution here.
 
 ## Repository Layout (Snapshot)
 ```
-usefule-web/
+useful-web/
 ├─ README.md                # Root index pointing to docs/ and agents.md
 ├─ agents.md                # Formal description of every mini-site/agent
 ├─ docs/
@@ -35,11 +35,11 @@ usefule-web/
 - **Routes** (`src/App.tsx`):
   - `/` → `PortalPage`: Lists the available agents as cards.
   - `/travel` → `TravelPage`: Placeholder message with upcoming workflow notes.
-  - `/photo` → `PhotoPage`: Placeholder message covering the planned resource tabs.
+  - `/photo` → `PhotoPage`: Fully interactive photo practice hub (tabs, favorites, external links).
   - `*` → Redirect back to `/`.
 - **Shared layout**: `components/SubPageLayout.tsx` encapsulates the back button, hero block, and content slot. The `accent` prop toggles styling per agent.
 - **Styling**: `src/styles.css` contains all layout and component styles (cards, hero sections, placeholders). When introducing a new styling approach (Tailwind, CSS Modules, etc.) document the rationale and migration plan here.
-- **External links**: `agents.md` requires all outbound links to use `window.open(url, "_blank")` through the Tauri shell API. When you implement this, note the exact utility/module here (e.g., wrapper around `@tauri-apps/api/shell.open`).
+- **External links**: `agents.md` requires all outbound links to use `window.open(url, "_blank")` through the Tauri shell API. Implemented via `apps/portal/src/utils/openExternal.ts`, which calls `window.__TAURI__.shell.open` when available and falls back to `window.open`.
 
 ## Agent Implementation Notes (tie back to `agents.md`)
 1. **Portal Navigator**
@@ -49,9 +49,9 @@ usefule-web/
    - UX expectations: Region filters, progressive drilldown, instant LiteSQLite writes, real-time completion stats, and emitted events `placeVisited` / `memoUpdated`.
    - Current state: `TravelPage.tsx` contains a product placeholder. When the real feature lands, document the LiteSQLite schema source (`packages/db` vs. inline migrations), React data flow, and Tauri commands used.
 3. **Photo Post-processing Practice Hub**
-   - UI: Two tabs (素材图库 / GitHub 项目) or category filters. Cards contain title, tip, external link button, and “favorite” toggle.
-   - Seed data: Table in `agents.md`. Whether you hardcode JSON or hydrate from DB, record the data source and seeding script.
-   - Favorites: Must persist locally and emit sync/analytics events once the bus exists.
+   - UI: Implemented in `pages/PhotoPage.tsx` with tab pills for 全部 / 素材图库 / GitHub 项目, search input, favorites-only filter, and resource cards that show the tip + open button. Cards call `openExternal` so outbound links open via the Tauri shell API/fallback window.
+   - Seed data: Hardcoded in `apps/portal/src/data/photoResources.ts` for now; migrate to LiteSQLite once the shared schema package lands.
+   - Favorites: Stored locally under the `photoResourceFavorites` key (simple string array in `localStorage`). Future sync/analytics bus can hook into the `toggleFavorite` handler in `PhotoPage.tsx`.
 
 ## Tauri Shell (`src-tauri`)
 - `src/main.rs` currently enables only `tauri_plugin_shell`. When you add commands (DB, sync bus, notifications), list the command names, parameters, and error handling strategy here for quick lookup.
