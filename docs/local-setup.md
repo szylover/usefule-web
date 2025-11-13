@@ -1,6 +1,6 @@
 # Local Development Setup
 
-Follow the steps below to run the Usefule Web desktop portal locally.
+Follow the steps below to run the Useful Web desktop portal locally.
 
 ## 1. Install Prerequisites
 
