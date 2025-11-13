@@ -9,7 +9,7 @@
 
 ## Repository Layout (Snapshot)
 ```
-usefule-web/
+useful-web/
 ├─ README.md                # Root index pointing to docs/ and agents.md
 ├─ agents.md                # Formal description of every mini-site/agent
 ├─ docs/

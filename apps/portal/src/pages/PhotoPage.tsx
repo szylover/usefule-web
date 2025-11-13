@@ -115,6 +115,7 @@ const PhotoPage = () => {
                 type="button"
                 role="tab"
                 aria-selected={isActive}
+                aria-controls="photo-tabpanel"
                 className={`photo-tab${isActive ? ' is-active' : ''}`}
                 onClick={() => setActiveFilter(filter.id)}
               >
@@ -154,7 +155,7 @@ const PhotoPage = () => {
         </div>
       )}
 
-      <div className="resource-grid">
+      <div id="photo-tabpanel" role="tabpanel" className="resource-grid">
         {filteredResources.length === 0 ? (
           <div className="resource-empty">
             <p>未找到符合条件的资源，换个关键词或关闭“仅看收藏”试试。</p>
